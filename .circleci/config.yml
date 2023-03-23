@@ -1,25 +1,28 @@
 version: 2.1
+jobs:
+  build-and-push:
+    docker:
+      - image: circleci/node:12.16
+    steps:
+      - checkout
+      - run: echo 'DOCKER_HUB_USERNAME=$DOCKER_HUB_USERNAME' >> $BASH_ENV
+      - run: echo 'DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD' >> $BASH_ENV
+      - setup_remote_docker
+      - run:
+          name: Build Docker images
+          command: |
+            docker-compose -f docker-compose-build.yaml build --parallel
+          environment:
+            DOCKER_BUILDKIT: 1
+      - run:
+          name: Push Docker images
+          command: |
+            echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
+            docker-compose push
+          environment:
+            DOCKER_BUILDKIT: 1
 workflows:
-  build-and-deploy:
+  version: 2
+  build_and_deploy:
     jobs:
-      build-and-push:
-        docker:
-          - image: circleci/node:12.16
-        steps:
-          - checkout
-          - run: echo 'DOCKER_HUB_USERNAME=$DOCKER_HUB_USERNAME' >> $BASH_ENV
-          - run: echo 'DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD' >> $BASH_ENV
-          - setup_remote_docker
-          - run:
-              name: Build Docker images
-              command: |
-                docker-compose -f docker-compose-build.yaml build --parallel
-              environment:
-                DOCKER_BUILDKIT: 1
-          - run:
-              name: Push Docker images
-              command: |
-                echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
-                docker-compose push
-              environment:
-                DOCKER_BUILDKIT: 1
+      - build-and-push
