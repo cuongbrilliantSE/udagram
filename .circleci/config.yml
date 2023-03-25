@@ -5,8 +5,6 @@ jobs:
       - image: circleci/node:12.16
     steps:
       - checkout
-      - run: echo $DOCKER_HUB_USERNAME
-      - run: echo $DOCKER_HUB_PASSWORD
       - run: echo 'DOCKER_HUB_USERNAME=$DOCKER_HUB_USERNAME'
       - run: echo 'DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD'
       - setup_remote_docker
@@ -20,7 +18,14 @@ jobs:
           name: Push Docker images
           command: |
             echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
-            docker-compose push
+            docker tag  udagram-api-feed backenddocker2022/udagram-api-feed:v1
+            docker push backenddocker2022/udagram-api-feed:v1
+            docker tag  udagram-api-user backenddocker2022/udagram-api-user:v1
+            docker push backenddocker2022/udagram-api-user:v1
+            docker tag  udagram-frontend backenddocker2022/udagram-frontend:v1
+            docker push backenddocker2022/udagram-frontend:v1
+            docker tag  reverseproxy backenddocker2022/reverseproxy:v1
+            docker push backenddocker2022/reverseproxy:v1
           environment:
             DOCKER_BUILDKIT: 1
 workflows:
