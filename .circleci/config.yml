@@ -19,13 +19,10 @@ jobs:
           command: |
             echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
             docker tag  udagram-api-feed backenddocker2022/udagram-api-feed:v1
-            docker push backenddocker2022/udagram-api-feed:v1
             docker tag  udagram-api-user backenddocker2022/udagram-api-user:v1
-            docker push backenddocker2022/udagram-api-user:v1
-            docker tag  udagram-frontend backenddocker2022/udagram-frontend:v1
-            docker push backenddocker2022/udagram-frontend:v1
+            docker tag  udagram-frontend:local backenddocker2022/udagram-frontend:v1
             docker tag  reverseproxy backenddocker2022/reverseproxy:v1
-            docker push backenddocker2022/reverseproxy:v1
+            docker-compose push
           environment:
             DOCKER_BUILDKIT: 1
 workflows:
