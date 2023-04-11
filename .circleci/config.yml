@@ -24,7 +24,7 @@ jobs:
             docker tag  reverseproxy backenddocker2022/reverseproxy:v1
             docker push backenddocker2022/udagram-api-feed:v1
             docker push backenddocker2022/udagram-api-user:v1
-            docker push backenddocker2022/udagram-frontend:v6
+            docker push backenddocker2022/udagram-frontend:v1
             docker push backenddocker2022/reverseproxy:v1
           environment:
             DOCKER_BUILDKIT: 1
