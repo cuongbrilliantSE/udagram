@@ -23,21 +23,21 @@ kubectl get pods
 ```bash
 kubectl describe services
 ```
- ![services](Screenshot from 2023-04-13 01-57-45.png)
- ![services](Screenshot from 2023-04-13 01-58-51.png)
- ![services](Screenshot from 2023-04-13 02-00-13.png)
- ![services](Screenshot from 2023-04-13 02-00-45.png)
- ![services](Screenshot from 2023-04-13 02-01-19.png)
- ![services](Screenshot from 2023-04-13 02-02-29.png)
+ ![services](Screenshot1.png)
+ ![services](Screenshot2.png)
+ ![services](Screenshot3.png)
+ ![services](Screenshot4.png)
+ ![services](Screenshot5.png)
+ ![services](Screenshot6.png)
 * To verify that you have horizontal scaling set against CPU usage
 ```bash
 kubectl describe hpa
 ```
-![hpas](Screenshot from 2023-04-13 02-04-03.png)
+![hpas](hpas.png)
 
 * To verify that you have set up logging with a backend application
 ```bash
 kubectl logs {pod_name}
 ```
-![logs](Screenshot from 2023-04-13 02-05-29.png)
+![logs](logs.png)
 
