@@ -29,6 +29,7 @@ kubectl describe services
  ![services](Screenshot4.png)
  ![services](Screenshot5.png)
  ![services](Screenshot6.png)
+ ![services](Screenshot7.png)
 * To verify that you have horizontal scaling set against CPU usage
 ```bash
 kubectl describe hpa
