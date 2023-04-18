@@ -9,7 +9,7 @@ To help review your infrastructure, please include the following screenshots in 
 * I use circle ci instead of travis ci for charge fee reason
   ![Pipeline](c.png)
   ![CircleCIpipe](circleCIpipe.png)
-  [CircleCI pipeline](https://app.circleci.com/pipelines/github/cuongbrilliantSE/udagram/31/workflows/7a1f37ff-ad0a-4d17-ad8e-9e6938cb87fa/jobs/37 "Click to view the pipeline")
+  [CircleCI pipeline](https://app.circleci.com/pipelines/github/cuongbrilliantSE/udagram/33/workflows/c1137c87-3ab4-43d0-a0e5-57a8ddb215ee/jobs/39 "Click to view the pipeline")
 
 
 ## Kubernetes
@@ -17,28 +17,31 @@ To help review your infrastructure, please include the following screenshots in 
 ```bash
 kubectl get pods
 ```
-  ![pods](pods.png)
+  ![pods](get_pods.png)
 * To verify Kubernetes services are properly set up
 
 ```bash
 kubectl describe services
 ```
- ![services](Screenshot1.png)
- ![services](Screenshot2.png)
- ![services](Screenshot3.png)
- ![services](Screenshot4.png)
- ![services](Screenshot5.png)
- ![services](Screenshot6.png)
- ![services](Screenshot7.png)
+ ![services](describe_service_1.png)
+ ![services](describe_service_2.png)
+ ![services](describe_service_3.png)
+ ![services](describe_service_4.png)
+ ![services](describe_service_5.png)
+ ![services](describe_service_7.png)
+ ![services](describe_service_8.png)
 * To verify that you have horizontal scaling set against CPU usage
 ```bash
 kubectl describe hpa
 ```
-![hpas](hpas.png)
+![hpas](describe_hpa_1.png)
+![hpas](describe_hpa_2.png)
+![hpas](describe_hpa_3.png)
+![hpas](describe_hpa_4.png)
 
 * To verify that you have set up logging with a backend application
 ```bash
 kubectl logs {pod_name}
 ```
-![logs](logs.png)
+![logs](log_pods.png)
 
