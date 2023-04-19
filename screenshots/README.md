@@ -9,7 +9,7 @@ To help review your infrastructure, please include the following screenshots in 
 * I use circle ci instead of travis ci for charge fee reason
   ![Pipeline](c.png)
   ![CircleCIpipe](circleCIpipe.png)
-  [CircleCI pipeline](https://app.circleci.com/pipelines/github/cuongbrilliantSE/udagram/33/workflows/c1137c87-3ab4-43d0-a0e5-57a8ddb215ee/jobs/39 "Click to view the pipeline")
+  [CircleCI pipeline](https://app.circleci.com/pipelines/github/cuongbrilliantSE/udagram/36/workflows/ba1dd45f-0bed-46c7-8bba-2a1979761b1a/jobs/42 "Click to view the pipeline")
 
 
 ## Kubernetes
@@ -28,8 +28,8 @@ kubectl describe services
  ![services](describe_service_3.png)
  ![services](describe_service_4.png)
  ![services](describe_service_5.png)
+ ![services](describe_service_6.png)
  ![services](describe_service_7.png)
- ![services](describe_service_8.png)
 * To verify that you have horizontal scaling set against CPU usage
 ```bash
 kubectl describe hpa
